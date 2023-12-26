@@ -24,7 +24,7 @@ telecoin.createNewBlock(98756, 'EDERTTT88888', 'AQWEDR85EERRR');
 */
 
 
-//Test hashBlock() methid
+//Test hashBlock() method
 const previousBlockHash = '0IANSDFRE875WW9090WSDEE78';
 const currentBlockData = [
     {
@@ -38,10 +38,10 @@ const currentBlockData = [
         recipient: 'FGT87ERT0T985O9090RTT'
     },
     {
-        amount:50,
+        amount:500,
         sender: 'NDRCFTJ650ERNN565DERHGKD',
         recipient: 'FGFRTT985O9FGLLL8755WE'
-    },
+    }
 ];
 const nonce = 100;
 console.log(telecoin.hashBlock(previousBlockHash, currentBlockData, nonce));
@@ -52,4 +52,4 @@ console.log(telecoin.hashBlock(previousBlockHash, currentBlockData, nonce));
 
 
 
-console.log(telecoin.chain[2]);
+console.log(previousBlockHash, currentBlockData, nonce);
