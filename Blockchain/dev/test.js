@@ -1,4 +1,4 @@
-const Blockchain = require('./blokchain').default;
+const Blockchain = require('./blokchain');
 
 const telecoin = new Blockchain();
 

@@ -1,7 +1,7 @@
 /*
 *building blockchain in construktor function 
 */
-const sha256 =  require('.sha256');
+const sha256 = ('.sha256');
 
 function Blockchain() {
     // all blocks will be stored here as a chain
@@ -82,11 +82,6 @@ Blockchain.prototype.hashBlock = function(previousBlockHash, currentBlockData, n
    const hash = sha256(dataAsString);
    return hash;
 }
-
-
-
-
-
 
 
 
