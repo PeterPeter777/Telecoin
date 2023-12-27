@@ -48,8 +48,3 @@ console.log(telecoin.hashBlock(previousBlockHash, currentBlockData, nonce));
 
 
 
-
-
-
-
-console.log(previousBlockHash, currentBlockData, nonce);

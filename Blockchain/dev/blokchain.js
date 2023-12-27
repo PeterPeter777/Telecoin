@@ -1,7 +1,7 @@
 /*
 *building blockchain in construktor function 
 */
-const sha256 = ('.sha256');
+const sha256 = require('../node_modules/sha256');
 
 function Blockchain() {
     // all blocks will be stored here as a chain
