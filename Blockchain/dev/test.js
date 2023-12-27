@@ -1,5 +1,4 @@
 const Blockchain = require('./blokchain');
-
 const telecoin = new Blockchain();
 
 /*
@@ -25,10 +24,10 @@ telecoin.createNewBlock(98756, 'EDERTTT88888', 'AQWEDR85EERRR');
 
 
 //Test hashBlock() method
-const previousBlockHash = '0IANSDFRE875WW9090WSDEE78';
+/*const previousBlockHash = '0IANSDFRE875WW9090WSDEE78';
 const currentBlockData = [
     {
-        amount:10,
+        amount:101,
         sender: 'NNNNNNNN565DERHGKD',
         recipient: 'HJKMENRT985O9090RTT'
     },
@@ -38,13 +37,41 @@ const currentBlockData = [
         recipient: 'FGT87ERT0T985O9090RTT'
     },
     {
-        amount:500,
-        sender: 'NDRCFTJ650ERNN565DERHGKD',
+        amount:200,
+        sender: 'S9875ERTT0ERNN565DERHGKD',//'S9875ERTT0ERNN565DERHGKD',
         recipient: 'FGFRTT985O9FGLLL8755WE'
     }
 ];
-const nonce = 100;
-console.log(telecoin.hashBlock(previousBlockHash, currentBlockData, nonce));
+
+//const nonce = 100;
+//with this data && with nonce 38794 hash should be 0000b1ca02e9961854c1c8482413c65695a9df167043ba3aa1ce931ee7c91d68;
+console.log(telecoin.hashBlock(previousBlockHash, currentBlockData, 38794));
+*/
+
+//testing the prrofOfWork method
+// on the start test the proofOfWork Method to get a nonce number of iterations, 
+// than run the the hashBlock method with the nonce = iterations to compare if the hash is correct
+/*const previousBlockHash = '0IANSDFRE875WW9090WSDEE78';
+const currentBlockData = [
+    {
+        amount:101,
+        sender: 'NNNNNNNN565DERHGKD',
+        recipient: 'HJKMENRT985O9090RTT'
+    },
+    {
+        amount:30,
+        sender: 'NDR896NNNN565DERHGKD',
+        recipient: 'FGT87ERT0T985O9090RTT'
+    },
+    {
+        amount:200,
+        sender: 'S9875ERTT0ERNN565DERHGKD',
+        recipient: 'FGFRTT985O9FGLLL8755WE'
+    }
+];
+console.log(telecoin.proofOfWork(previousBlockHash, currentBlockData));
+*/
 
 
-
+// Test genesis block - line 12 blockchain.js
+console.log(telecoin);
