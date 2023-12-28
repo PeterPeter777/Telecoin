@@ -11,6 +11,8 @@ app.post('/transaction',function(res, req) {
 
 app.get('/mine', function (req, res) {
   
+
+
 });
 
 app.listen(3000, function() {
