@@ -13,9 +13,9 @@ app.get('/blockchain', function (req, res) {
   //res.send(telecoin);
 });
 
-app.post('/transaction',function(res, req) {
+app.post('/transaction',function(req, res) {
   console.log(req.body);
-  res.send('The amount of transaction is' + req.body.amount + ' ' + 'telecoin');
+  res.send({"note":'The amount of transaction is' + ' ' + req.body.amount + ' ' + 'telecoin.'});
   
 });
 
