@@ -47,7 +47,11 @@ app.get('/mine', function(req, res) {
 // register a node and broadcast it the network
 app.post('/register-and-broadcast-node', function(req,res) {
   const newNodeUrl = req.body.newNodeurl;
-  //....
+  if(telecoin.networkNodes.indexOf(newNodeurl) == -1) telecoin.networkNodes.push(newNodeUrl);
+
+  telecoin.networkNodes.forEach(networkNodeUrl => {
+    // register-node
+  });
 });
 
 // register a node with the network
