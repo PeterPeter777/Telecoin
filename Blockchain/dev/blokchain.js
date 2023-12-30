@@ -2,12 +2,16 @@
 *building blockchain in construktor function 
 */
 const sha256 = require('../node_modules/sha256');
+const currentNodeUrl = process.argv[3];
 
 function Blockchain() {
     // all blocks will be stored here as a chain
     this.chain = [];
     // all new created transactions will be stored here before pasted to block
     this.pendingTransactions = [];
+    // genretate url
+    this.currentNodeUrl = currentNodeUrl;
+    this.networkNodes = [];
     // generate genesis block with arbuturary params
     this.createNewBlock(100, '0', '0');
 };
