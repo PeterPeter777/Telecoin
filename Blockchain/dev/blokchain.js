@@ -9,7 +9,7 @@ function Blockchain() {
     // all new created transactions will be stored here before pasted to block
     this.pendingTransactions = [];
     // generate genesis block with arbuturary params
-    //this.createNewBlock(100, '0', '0');
+    this.createNewBlock(100, '0', '0');
 };
 
 /*building blockchain in classes solution
