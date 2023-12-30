@@ -49,8 +49,8 @@ app.get('/mine', function(req, res) {
 
 // register a node and broadcast it the network
 app.post('/register-and-broadcast-node', function(req,res) {
-  const newNodeUrl = req.body.newNodeurl;
-  if(telecoin.networkNodes.indexOf(newNodeurl) == -1) telecoin.networkNodes.push(newNodeUrl);//registering
+  const newNodeUrl = req.body.newNodeUrl;
+  if(telecoin.networkNodes.indexOf(newNodeUrl) == -1) telecoin.networkNodes.push(newNodeUrl);//registering
 
   // request to all registered nodes - uris
   const regNodesPromises = [];
@@ -95,7 +95,7 @@ app.post('/register-nodes-bulk', function(req, res) {
     const allNetworkNodes = req.body.allNetworkNodes;
     allNetworkNodes.forEach(networkNodeUrl => {
      const nodeNotAlreadyPresent = telecoin.networkNodes.indexOf(networkNodeUrl) == -1;
-     const notCurrentNode = telcoin.currentNodeUrl !== networkNodeUrl
+     const notCurrentNode = telecoin.currentNodeUrl !== networkNodeUrl;
       if (nodeNotAlreadyPresent && notCurrentNode) telecoin.networkNodes.push(networkNodeUrl);
     });
     res.json({ note: 'Bulk registration successful'});
