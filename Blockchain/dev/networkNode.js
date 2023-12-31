@@ -29,7 +29,7 @@ app.post('/transaction',function(req, res) {
 
 
 app.post('/transaction/broadcast', function(req, res) {
-   const newTransaction = telecoin.createNewTransaction(req.body.amount, req.body.sender. req.body.recipient);
+   const newTransaction = telecoin.createNewTransaction(req.body.amount, req.body.sender, req.body.recipient);
    telecoin.addTransactionToPendingTransactions(newTransaction);
    
    const requestPromises = [];
