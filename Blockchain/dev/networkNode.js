@@ -22,8 +22,32 @@ app.get('/blockchain', function (req, res) {
 
 
 app.post('/transaction',function(req, res) {
- const blockIndex =  telecoin.createNewTransaction(req.body.amount, req.body.sender, req.body.recipient);
- res.json({note: 'Transaction will be added in block' + ' ' + blockIndex});
+   const newTransaction = req.body;
+   const blockIndex = telecoin.addTransactionToPendingTransactions(newTransaction);
+   res.json({note: 'Transaction will be added in block' + ' ' + blockIndex});
+});
+
+
+app.post('/transaction/broadcast', function(req, res) {
+   const newTransaction = telecoin.createNewTransaction(req.body.amount, req.body.sender. req.body.recipient);
+   telecoin.addTransactionToPendingTransactions(newTransaction);
+   
+   const requestPromises = [];
+   telecoin.networkNodes.forEach(networkNodeUrl => {
+   const requestOptions = {
+    uri: networkNodeUrl + '/transaction',
+    method: 'POST',
+    body: newTransaction,
+    json: true
+   };
+
+   requestPromises.push(rp(requestOptions));
+   });
+
+   Promise.all(requestPromises)
+   .then(data => {
+    res.json({ note: 'Transaction created and broadcast successfully.'});
+   });
 });
 
 app.get('/mine', function(req, res) {
