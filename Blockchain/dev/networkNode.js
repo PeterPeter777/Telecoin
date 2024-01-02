@@ -54,21 +54,21 @@ app.get('/mine', function(req, res) {
   const lastBlock = telecoin.getLastBlock();
   const previousBlockHash = lastBlock['hash'];
   const currentBlockData = {
-    transaction: telecoin.pendingTransactions,
+    transactions: telecoin.pendingTransactions,
     index: lastBlock['index'] + 1
   };
   const nonce = telecoin.proofOfWork(previousBlockHash, currentBlockData);
   const blockHash = telecoin.hashBlock(previousBlockHash, currentBlockData, nonce);
-  //telecoin.createNewTransaction(12.5, "00", nodeAddress);
+  
   const newBlock = telecoin.createNewBlock(nonce, previousBlockHash, blockHash);
   
   //broadcasting mine to all network
   const requestPromises = [];
-  telecoin.networkNodes.forEach(networkNodeUrl =>{
+  telecoin.networkNodes.forEach(networkNodeUrl => {
     const requestOptions = {
         uri: networkNodeUrl + '/receive-new-block',
         method: 'POST',
-        body: { newBlock: newBlock},
+        body: { newBlock: newBlock },
         json: true
     };
 
@@ -103,14 +103,17 @@ app.get('/mine', function(req, res) {
 app.post('/receive-new-block', function(req, res) {
    const newBlock = req.body.newBlock;
    const lastBlock = telecoin.getLastBlock();
+   
+   // tu mam chybu niekde bud indexovanie , hashe vyzeraju okej, alebo ===
    const correctHash = lastBlock.hash === newBlock.previousBlockHash;
    const correctIndex = lastBlock['index'] + 1 === newBlock['index'];
    if (correctHash && correctIndex) {
     telecoin.chain.push(newBlock);
     telecoin.pendingTransactions = [];
-    res.json({ note: 'New block received and accepted.',
-               newBlock: newBlock
-  });
+    res.json({ 
+      note: 'New block received and accepted.',
+      newBlock: newBlock
+     });
    } else {
     res.json ({
       note: 'New block rejected.',
