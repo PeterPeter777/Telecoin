@@ -103,8 +103,8 @@ app.get('/mine', function(req, res) {
 app.post('/receive-new-block', function(req, res) {
    const newBlock = req.body.newBlock;
    const lastBlock = telecoin.getLastBlock();
-   
-   // tu mam chybu niekde bud indexovanie , hashe vyzeraju okej, alebo ===
+
+   // tu mam chybu niekde bud indexovanie (dtale vracia index 1 takze podmienka s indexom nefunguje), hashe vyzeraju okej, alebo ===
    const correctHash = lastBlock.hash === newBlock.previousBlockHash;
    const correctIndex = lastBlock['index'] + 1 === newBlock['index'];
    if (correctHash && correctIndex) {
