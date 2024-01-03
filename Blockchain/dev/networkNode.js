@@ -58,8 +58,7 @@ app.get('/mine', function(req, res) {
     index: lastBlock['index'] + 1
   };
   const nonce = telecoin.proofOfWork(previousBlockHash, currentBlockData);
-  const blockHash = telecoin.hashBlock(previousBlockHash, currentBlockData, nonce);
-  
+  const blockHash = telecoin.hashBlock(previousBlockHash, currentBlockData, nonce); 
   const newBlock = telecoin.createNewBlock(nonce, previousBlockHash, blockHash);
   
   //broadcasting mine to all network
@@ -106,7 +105,7 @@ app.post('/receive-new-block', function(req, res) {
 
    // tu mam chybu niekde bud indexovanie (dtale vracia index 1 takze podmienka s indexom nefunguje), hashe vyzeraju okej, alebo ===
    const correctHash = lastBlock.hash === newBlock.previousBlockHash;
-   const correctIndex = lastBlock['index'] + 1 === newBlock['index'];
+   const correctIndex = lastBlock.index + 1 === newBlock.index;
    if (correctHash && correctIndex) {
     telecoin.chain.push(newBlock);
     telecoin.pendingTransactions = [];

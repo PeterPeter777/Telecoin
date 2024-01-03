@@ -55,7 +55,7 @@ Blockchain.prototype.createNewBlock = function(nonce, previousBlockHash, hash){
 *Method getLastBlock
 */
 Blockchain.prototype.getLastBlock = function() {
-    return this.chain[this.chain.length -1];
+    return this.chain[this.chain.length - 1];
 };
 
 /*
@@ -75,7 +75,7 @@ Blockchain.prototype.createNewTransaction = function(amount, sender, recipient) 
 
 Blockchain.prototype.addTransactionToPendingTransactions = function(transactionObj) {
 this.pendingTransactions.push(transactionObj);
-return this.getLastBlock()['index'] = 1;
+return this.getLastBlock()['index'] + 1;
 };
 
 
@@ -113,13 +113,13 @@ Blockchain.prototype.proofOfWork = function(previousBlockHash, currentBlockData)
 // Chain validation
 Blockchain.prototype.chainIsValid = function(blockchain) {
     let validChain = true;
-
+    
    for (var i = 0; i < blockchain.length; i++) {
         const currentBlock = blockchain[i];
         const prevBlock = blockchain[i - 1];
-        const blockHash = this.hashBlock(prevBlock['hash'], {transaction: currentBlock['transaction'], index: currentBlock['index']}, currentBlock['nonce']);
+        const blockHash = this.hashBlock(prevBlock['hash'], {transactions: currentBlock['transactions'], index: currentBlock['index']}, currentBlock['nonce']);
         if (blockHash.substring(0, 4) !== '0000') validChain = false;
-        if (currentBlock['previousBlockHask'] !== prevBlock['hash']) validChain = false;
+        if (currentBlock['previousBlockHash'] !== prevBlock['hash']) validChain = false;
    };
    const genesisBlock = blockchain[0];
    const correctNonce = genesisBlock['nonce'] === 100;
