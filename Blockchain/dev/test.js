@@ -13,7 +13,7 @@ const bc1 = {
             "previousBlockHash": "0"
         },
         {
-            "index": 1,
+            "index": 2,
             "timestamp": 1704273825305,
             "transactions": [],
             "nonce": 18140,
@@ -21,7 +21,7 @@ const bc1 = {
             "previousBlockHash": "0"
         },
         {
-            "index": 1,
+            "index": 3,
             "timestamp": 1704273929597,
             "transactions": [
                 {
@@ -54,7 +54,7 @@ const bc1 = {
             "previousBlockHash": "0000b9135b054d1131392c9eb9d03b0111d4b516824a03c35639e12858912100"
         },
         {
-            "index": 1,
+            "index": 4,
             "timestamp": 1704273976175,
             "transactions": [
                 {
@@ -93,7 +93,7 @@ const bc1 = {
             "previousBlockHash": "0000946a4ca8e03e62649a8a859dad8c855acd94ceb74ed3757266eb8bf49f47"
         },
         {
-            "index": 1,
+            "index": 5,
             "timestamp": 1704273998785,
             "transactions": [
                 {
@@ -108,7 +108,7 @@ const bc1 = {
             "previousBlockHash": "0000d7fc26f627c54b74cb159a71cea8f952befbc2f3d99600f4516406eb15a9"
         },
         {
-            "index": 1,
+            "index": 6,
             "timestamp": 1704274001619,
             "transactions": [
                 {
